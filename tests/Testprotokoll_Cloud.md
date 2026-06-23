@@ -110,7 +110,7 @@ mysql -h backpacker-lb3.ctyew6siuvwz.eu-north-1.rds.amazonaws.com -u bp_readonly
 
 ## 7. Fazit
 
-Migration vollständig erfolgreich. Alle 4'885 Datensätze identisch auf AWS RDS vorhanden. Alle 5 FK-Constraints aktiv. Alle 3 Datenbankbenutzer korrekt mit Berechtigungen gemäss Zugriffsmatrix. Cloud-DBMS bereit für Demo vor Lehrperson.
+Migration vollständig erfolgreich. Alle 4'885 Datensätze identisch auf AWS RDS vorhanden. Alle 5 FK-Constraints aktiv. Alle 3 Datenbankbenutzer korrekt mit Berechtigungen gemäss Zugriffsmatrix. Cloud-DBMS bereit für Live-Demo.
 
 ---
 

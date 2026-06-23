@@ -1,7 +1,7 @@
 -- ============================================================
 -- M141 Praxisarbeit – Backpacker_LB3
 -- Skript: test_demo_lp.sql
--- Beschreibung: Demo-Testskript für Lehrperson (LP)
+-- Beschreibung: Demo-Testskript (Live-Präsentation)
 --              Zeigt Zugriffsmatrix, FK-Constraints und Migration
 -- Ausführen als: root (für Übersicht), dann als jeweiliger User
 -- ============================================================

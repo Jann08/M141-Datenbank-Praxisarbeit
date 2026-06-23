@@ -86,10 +86,10 @@
 
 ---
 
-## 7. Demo-Testskript für Lehrperson (LP)
+## 7. Demo-Testskript
 
-Datei: `tests/test_berechtigungen.sql` – führt alle erlaubten Tests aus.  
-Negative Tests (auskommentiert) zeigen den Lehrperson, dass ACCESS DENIED korrekt zurückgegeben wird.
+Datei: `tests/test_demo_lp.sql` – führt alle Positivtests durch.  
+Negativtests sind auskommentiert und werden bei der Live-Demo manuell aktiviert, um zu zeigen, dass ACCESS DENIED korrekt zurückgegeben wird.
 
 **Ablauf Demo**:
 1. Als `bp_readonly` einloggen → gesamte DB lesbar
