@@ -1,0 +1,49 @@
+# ============================================================
+# M141 Praxisarbeit – Backpacker_LB3
+# Datei: my_cloud.cnf (Cloud-DBMS Konfiguration, produktiv)
+# Für: Cloud-Betrieb (z.B. AWS RDS / EC2 MariaDB)
+# ANNAHME: AWS-RDS erlaubt keine direkte my.cnf-Änderung;
+#          Parameter werden über Parameter-Groups gesetzt.
+#          Diese Datei dokumentiert die empfohlenen Werte.
+# ============================================================
+
+[mysqld]
+# Zeichensatz
+character-set-server    = utf8mb4
+collation-server        = utf8mb4_unicode_ci
+
+# Engine
+default-storage-engine  = InnoDB
+
+# Sicherheit
+# Kein anonymer Login
+skip-networking         = 0
+bind-address            = 0.0.0.0
+
+# Passwort-Policy (MariaDB)
+# plugin-load-add        = simple_password_check
+# simple_password_check_digits     = 1
+# simple_password_check_letters_same_case = 1
+# simple_password_check_minimal_length    = 12
+
+# TLS / SSL für Cloud-Verbindungen erzwingen
+# require_secure_transport = ON
+
+# InnoDB-Einstellungen (produktiv)
+innodb_buffer_pool_size = 256M
+innodb_log_file_size    = 64M
+
+# Verbindungen
+max_connections         = 100
+connect_timeout         = 10
+
+# Slow Query Log
+slow_query_log          = 1
+long_query_time         = 1
+
+# Backup-freundlich
+innodb_flush_log_at_trx_commit = 1
+sync_binlog                    = 1
+
+[client]
+default-character-set   = utf8mb4
