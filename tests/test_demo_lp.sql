@@ -40,7 +40,7 @@ ORDER BY TABLE_NAME;
 -- ============================================================
 -- SCHRITT 4: Positivtests (als bp_benutzer ausführen)
 -- ============================================================
--- mysql -u bp_benutzer -p backpacker_lb3
+-- mysql -h backpacker-lb3.ctyew6siuvwz.eu-north-1.rds.amazonaws.com -u bp_benutzer -pBenutzer@Cloud123! backpacker_lb3
 
 SELECT '=== T01: SELECT tbl_personen (bp_benutzer) → ERLAUBT ===' AS Test;
 SELECT Personen_ID, Vorname, Name, Ort FROM tbl_personen LIMIT 5;
@@ -71,7 +71,7 @@ SELECT '=== NEGATIVTESTS (auskommentiert – Kommentare entfernen für Demo) ===
 
 -- ============================================================
 -- SCHRITT 6: Management-Tests (als bp_management ausführen)
--- mysql -u bp_management -p backpacker_lb3
+-- mysql -h backpacker-lb3.ctyew6siuvwz.eu-north-1.rds.amazonaws.com -u bp_management -pManagement@Sicher456! backpacker_lb3
 -- ============================================================
 SELECT '=== T09: SELECT tbl_buchung (bp_management) → ERLAUBT ===' AS Test;
 SELECT Buchungs_ID, Personen_FS, Ankunft FROM tbl_buchung LIMIT 5;

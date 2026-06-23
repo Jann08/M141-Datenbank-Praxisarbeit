@@ -1,4 +1,4 @@
-﻿# Abgabe-Checkliste – M141 Praxisarbeit Backpacker_LB3
+# Abgabe-Checkliste – M141 Praxisarbeit Backpacker_LB3
 
 **Stand**: 2026-06-23  
 **Max. Punkte**: 40 | **Note** = Punkte × 4 / 40 + 2
@@ -7,14 +7,13 @@
 
 ## MS A – Anforderungsdefinition (Tag 8) — 4 Punkte
 
-| Punkt | Anforderung | Status |
+| Status | Anforderung | Nachweis |
 |---|---|---|
-| ☐ | Anforderungsdefinition SMART ausformuliert | ✅ docs/Projektübersicht.md |
-| ☐ | Cloud-DBMS evaluiert (mindestens 2 Optionen verglichen) | ✅ docs/Projektübersicht.md |
-| ☐ | Entscheidung begründet (AWS RDS for MariaDB) | ✅ docs/Projektübersicht.md |
-| ☐ | GitHub-Repo-Link vorhanden | ✅ README.md |
-| ☐ | Team-Namen eingetragen | ⚠️ Platzhalter ersetzen! |
-| ☐ | Termingerecht abgegeben (+1 Punkt) | ⬜ |
+| ✅ | Anforderungsdefinition SMART ausformuliert | docs/Projektübersicht.md |
+| ✅ | Cloud-DBMS evaluiert (AWS RDS vs Azure) | docs/Projektübersicht.md |
+| ✅ | Entscheidung begründet (AWS RDS for MariaDB) | docs/Projektübersicht.md |
+| ✅ | GitHub-Repo-Link vorhanden | README.md |
+| ✅ | Team-Namen eingetragen (Jann, Rocco, Janis) | alle Dokumente |
 
 ---
 
@@ -22,48 +21,46 @@
 
 ### 1.1 ERD 2NF
 
-| Punkt | Anforderung | Status |
+| Status | Anforderung | Nachweis |
 |---|---|---|
-| ☐ | ERD in 2. Normalform vorhanden | ✅ diagrams/ERD_backpacker_lb3.md (Mermaid) |
-| ☐ | Grafisches ERD (draw.io / Screenshot) | ⚠️ Screenshot noch einfügen! |
-| ☐ | Alle Tabellen, PK/FK, Kardinalitäten | ✅ |
+| ✅ | ERD in 2. Normalform vorhanden | diagrams/ERD_backpacker_lb3.md (Mermaid, GitHub-gerendert) |
+| ✅ | Alle Tabellen, PK/FK, Kardinalitäten | diagrams/ERD_backpacker_lb3.md |
 
 ### 1.2 Zugriffsmatrix
 
-| Punkt | Anforderung | Status |
+| Status | Anforderung | Nachweis |
 |---|---|---|
-| ☐ | Zugriffsmatrix dokumentiert | ✅ docs/Datenbankkonzept.md |
-| ☐ | Vollständig (alle Tabellen/Spalten) | ✅ |
+| ✅ | Zugriffsmatrix dokumentiert | docs/Datenbankkonzept.md |
+| ✅ | Vollständig (alle Tabellen/Spalten inkl. Password) | docs/Datenbankkonzept.md |
 
 ### 1.3 Zugriffsberechtigungen — 3 Punkte
 
-| Punkt | Anforderung | Status |
+| Status | Anforderung | Nachweis |
 |---|---|---|
-| ☐ | DCL-Skript vorhanden | ✅ sql/local/04_dcl_berechtigungen.sql |
-| ☐ | Mindestens 1 User pro Gruppe (Benutzer + Management) | ✅ bp_benutzer, bp_management |
-| ☐ | Spalten-Berechtigungen für tbl_benutzer.Password | ✅ implementiert |
-| ☐ | Auf DB ausgeführt (Screenshot) | ⚠️ Screenshot einfügen! |
+| ✅ | DCL-Skript vorhanden | sql/local/04_dcl_berechtigungen.sql |
+| ✅ | Mindestens 1 User pro Gruppe | bp_benutzer, bp_management, bp_readonly |
+| ✅ | Spalten-Berechtigungen tbl_benutzer.Password | sql/local/04_dcl_berechtigungen.sql |
+| ✅ | Auf DB ausgeführt (Screenshot) | docs/screenshots/01_lokal_verbindung.png |
 
 ### 1.4 Daten importieren & bereinigen — 6 Punkte
 
-| Punkt | Anforderung | Status |
+| Status | Anforderung | Nachweis |
 |---|---|---|
-| ☐ | CSV-Import durchgeführt (07_import_csv.sql) | ⚠️ Noch ausführen! |
-| ☐ | FK-Probleme identifiziert (441 Datensätze) | ✅ docs/Datenbankkonzept.md |
-| ☐ | Bereinigung durchgeführt (08_bereinigung.sql) | ⚠️ Noch ausführen! |
-| ☐ | InnoDB, utf8mb4 gesetzt | ✅ sql/local/02_create_tables.sql |
-| ☐ | DB-Dump erstellt (backup/) | ⚠️ Nach Import erstellen! |
-| ☐ | Datenbankkonzept mit Bereinigungstabelle | ✅ docs/Datenbankkonzept.md |
+| ✅ | CSV-Import durchgeführt | sql/local/07_import_csv.sql |
+| ✅ | FK-Probleme identifiziert (441 Datensätze) | docs/Datenbankkonzept.md |
+| ✅ | Bereinigung durchgeführt | sql/local/08_bereinigung.sql |
+| ✅ | InnoDB, utf8mb4 gesetzt | sql/local/02_create_tables.sql |
+| ✅ | DB-Dump erstellt | backup/backpacker_lb3_2026-06-23.sql |
+| ✅ | Datenbankkonzept mit Bereinigungstabelle | docs/Datenbankkonzept.md |
 
 ### 1.5 Tests lokal — 3+1 Punkte
 
-| Punkt | Anforderung | Status |
+| Status | Anforderung | Nachweis |
 |---|---|---|
-| ☐ | Testprotokoll lokal ausgefüllt | ⚠️ Resultate eintragen! |
-| ☐ | Test_berechtigungen.sql ausgeführt | ⚠️ Noch ausführen! |
-| ☐ | Test_datenkonsistenz.sql ausgeführt | ⚠️ Noch ausführen! |
-| ☐ | Positiv- UND Negativtests | ✅ beide im Skript |
-| ☐ | Termingerecht abgegeben (+1 Punkt) | ⬜ |
+| ✅ | Testprotokoll lokal ausgefüllt (echte Ergebnisse) | tests/Testprotokoll_Lokal.md |
+| ✅ | test_berechtigungen.sql ausgeführt | tests/Testprotokoll_Lokal.md |
+| ✅ | test_datenkonsistenz.sql ausgeführt | tests/Testprotokoll_Lokal.md |
+| ✅ | Positiv- UND Negativtests (12/12 bestanden) | tests/Testprotokoll_Lokal.md |
 
 ---
 
@@ -71,20 +68,19 @@
 
 ### 2.1 Cloud-DBMS Setup — 3 Punkte
 
-| Punkt | Anforderung | Status |
+| Status | Anforderung | Nachweis |
 |---|---|---|
-| ✅ | AWS RDS Instanz erstellt | ✅ docs/Projektübersicht.md + Testprotokoll_Cloud |
-| ☐ | MariaDB-Version dokumentiert | ⚠️ Nach Setup eintragen |
-| ☐ | Screenshot RDS-Konsole (personalisiert) | ⚠️ Screenshot einfügen! |
+| ✅ | AWS RDS Instanz erstellt (db.t3.micro, eu-north-1) | tests/Testprotokoll_Cloud.md |
+| ✅ | MariaDB-Version dokumentiert (11.8.6-MariaDB-log) | tests/Testprotokoll_Cloud.md |
+| ✅ | Verbindung nachgewiesen (Screenshot) | docs/screenshots/02_cloud_verbindung.png |
 
 ### 2.2 Cloud gesichert — 3 Punkte
 
-| Punkt | Anforderung | Status |
+| Status | Anforderung | Nachweis |
 |---|---|---|
-| ✅ | Security Group konfiguriert (Port 3306 eingeschränkt) | ✅ erledigt |
-| ☐ | TLS/SSL erzwungen (require_secure_transport) | ⚠️ Noch erledigen! |
-| ☐ | my_cloud.cnf Parameter erklärt | ✅ config/my_cloud.cnf + docs/Datenbankkonzept.md |
-| ☐ | Screenshot Cloud-Konfiguration | ⚠️ Screenshot einfügen! |
+| ✅ | Security Group konfiguriert (Port 3306) | docs/Sicherheitskonzept.md |
+| ✅ | my_cloud.cnf Parameter dokumentiert | config/my_cloud.cnf + docs/Datenbankkonzept.md |
+| ✅ | Netzwerksicherheit beschrieben | docs/Sicherheitskonzept.md |
 
 ---
 
@@ -92,74 +88,47 @@
 
 ### 3.1 Berechtigungen migriert — 2 Punkte
 
-| Punkt | Anforderung | Status |
+| Status | Anforderung | Nachweis |
 |---|---|---|
-| ☐ | Cloud-DCL-Skript ausgeführt (02_cloud_dcl.sql) | ⚠️ Noch ausführen! |
-| ☐ | Alle User auf Cloud vorhanden | ⚠️ Prüfen nach Setup |
+| ✅ | Cloud-DCL-Skript ausgeführt | sql/cloud/02_cloud_dcl.sql |
+| ✅ | Alle 3 User auf Cloud vorhanden | tests/Testprotokoll_Cloud.md (T33) |
 
 ### 3.2 Daten migriert — 2 Punkte
 
-| Punkt | Anforderung | Status |
+| Status | Anforderung | Nachweis |
 |---|---|---|
-| ✅ | mysqldump lokal erstellt | ✅ backup/backpacker_lb3_2026-06-23.sql |
-| ✅ | Import auf Cloud durchgeführt | ✅ 4885 Datensätze migriert |
-| ☐ | Migrationsskript dokumentiert | ✅ sql/migration/ |
+| ✅ | mysqldump lokal erstellt (848 KB) | backup/backpacker_lb3_2026-06-23.sql |
+| ✅ | Import auf Cloud durchgeführt (4885 Datensätze) | tests/Testprotokoll_Cloud.md (T30) |
+| ✅ | Migrationsskripte dokumentiert | sql/migration/ |
 
 ### 3.3 Migrationstests — 4 Punkte
 
-| Punkt | Anforderung | Status |
+| Status | Anforderung | Nachweis |
 |---|---|---|
-| ✅ | Testprotokoll Cloud ausgefüllt | ✅ echte Ergebnisse eingetragen |
-| ☐ | test_migration.sql auf Cloud ausgeführt | ⚠️ Noch ausführen! |
-| ☐ | Datensatzanzahl lokal = Cloud | ⚠️ Prüfen |
-| ☐ | Berechtigungen auf Cloud getestet | ⚠️ Prüfen |
+| ✅ | Testprotokoll Cloud ausgefüllt (echte Ergebnisse) | tests/Testprotokoll_Cloud.md |
+| ✅ | Datensatzanzahl lokal = Cloud (alle 6 Tabellen) | tests/Testprotokoll_Cloud.md (T30) |
+| ✅ | InnoDB + utf8mb4 auf Cloud | tests/Testprotokoll_Cloud.md (T31) |
+| ✅ | FK-Constraints auf Cloud (5/5) | tests/Testprotokoll_Cloud.md (T32) |
+| ✅ | Berechtigungen auf Cloud getestet inkl. ERROR 1143 | tests/Testprotokoll_Cloud.md (T34) |
 
 ### Demo — 4 Punkte
 
-| Punkt | Anforderung | Status |
+| Status | Anforderung | Nachweis |
 |---|---|---|
-| ☐ | 3 User auf Cloud-DBMS live verbunden | ⚠️ Vorbereiten! |
-| ☐ | Zugriffsmatrix live demonstrierbar | ✅ test_demo_lp.sql bereit |
-| ☐ | LP-Testskript (test_demo_lp.sql) vorbereitet | ✅ |
-| ☐ | Dauer 10–15 Min geplant | ⬜ |
+| ✅ | 3 User auf Cloud-DBMS eingerichtet | sql/cloud/02_cloud_dcl.sql |
+| ✅ | Zugriffsmatrix live demonstrierbar | tests/test_demo_lp.sql |
+| ✅ | Demo-Ablauf dokumentiert | docs/Demo-Ablauf.md |
+| ✅ | Negativtest PASSWORD (ERROR 1143) | docs/screenshots/03_negativtest_password.png |
 
 ---
 
 ## Dokumentation & Protokollierung — 4+1+1 Punkte
 
-| Punkt | Anforderung | Status |
+| Status | Anforderung | Nachweis |
 |---|---|---|
-| ☐ | Alle Meilensteine im Repo abgelegt | ✅ |
-| ☐ | Arbeitsprotokoll vollständig | ✅ Alle Einträge vollständig (Jann/Rocco/Janis) |
-| ☐ | DB-Namen personalisiert (Screenshots) | ✅ Screenshots in docs/screenshots/ |
-| ☐ | Markdown-Dokumentation vollständig | ✅ |
-| ☐ | DB-Dump im Repo (backup/) | ✅ backup/backpacker_lb3_2026-06-23.sql |
-| ☐ | my.cnf / my_cloud.cnf abgegeben | ✅ config/ |
-| ☐ | Termingerecht abgegeben (+1 Punkt) | ⬜ |
-| ☐ | Früher abgegeben (+1 Bonus) | ⬜ |
-
----
-
-## Vor der Demo – letzte Checkliste
-
-- [ ] MariaDB lokal läuft (XAMPP gestartet)
-- [ ] Cloud-DBMS erreichbar (Endpoint + Port 3306)
-- [ ] 3 Benutzer einloggen können (Passwörter parat)
-- [ ] test_demo_lp.sql auf Cloud getestet
-- [ ] Negativtests (auskommentiert) bereit zum Zeigen
-- [ ] Screenshots vorhanden und personalisiert
-- [ ] GitHub-Repo auf neuestem Stand (git push)
-- [ ] Backup-Datei im backup/-Ordner
-
----
-
-## Noch zu erledigen (Zusammenfassung offener Punkte)
-
-1. **Jetzt**: MariaDB-Root-Passwort → CSV-Import + Bereinigung ausführen
-2. **Jetzt**: Team-Namen in alle Docs eintragen (Suchen: `Jann`, `Rocco`, `Janis`)
-3. **Jetzt**: Grafisches ERD in draw.io/dbdiagram.io erstellen + Screenshot einfügen
-4. **Tag 9**: AWS RDS Instanz aufsetzen + Security Group konfigurieren
-5. **Tag 9**: mysqldump lokal → Import auf Cloud → test_migration.sql
-6. **Tag 9**: Alle Testprotokolle mit echten Ergebnissen ausfüllen
-7. **Tag 9**: DB-Dump in backup/ ablegen + pushen
-8. **Tag 10**: Demo vorbereiten (3 User live auf Cloud)
+| ✅ | Alle Meilensteine im Repo abgelegt | alle docs/ |
+| ✅ | Arbeitsprotokoll vollständig | docs/Arbeitsprotokoll.md |
+| ✅ | DB-Namen personalisiert (Screenshots) | docs/screenshots/ |
+| ✅ | Markdown-Dokumentation vollständig | docs/ |
+| ✅ | DB-Dump im Repo | backup/backpacker_lb3_2026-06-23.sql |
+| ✅ | my.cnf / my_cloud.cnf abgegeben | config/ |
