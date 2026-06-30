@@ -106,7 +106,7 @@
 
 ## 7. Fazit
 
-Alle Daten korrekt importiert und bereinigt. Alle FK-Constraints ohne Fehler. Alle Berechtigungen gemäss Zugriffsmatrix korrekt implementiert. Lokales DBMS bereit für Migration auf Cloud.
+Alle Daten korrekt importiert und bereinigt. Alle FK-Constraints ohne Fehler erstellt. Alle Berechtigungen gemäss Zugriffsmatrix korrekt implementiert. Lokales DBMS bereit für Migration auf Cloud.
 
 ---
 
