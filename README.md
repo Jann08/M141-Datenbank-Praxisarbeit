@@ -3,7 +3,7 @@
 **Modul**: M141 – Datenbanksysteme in Betrieb nehmen  
 **Schule**: TBZ Zürich  
 **Team**: Jann, Rocco, Janis  
-**Version**: 1.0 | Stand: 2026-06-23
+**Version**: 1.0 | Stand: 2026-06-30
 
 ---
 
