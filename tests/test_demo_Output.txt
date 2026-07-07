@@ -1,0 +1,88 @@
+PS C:\> Get-Content .\test_demo_lp.sql | mysql -h m141findb.cifqgec0odsr.us-east-1.rds.amazonaws.com -u admin -p backpacker_lb3
+Enter password: **************
+Demo
+=== SYSTEM-??BERSICHT ===
+MariaDB_Version Host    Datenverzeichnis
+11.8.6-MariaDB-log      ip-10-1-4-39    /rdsdbdata/db/
+Demo
+=== DATENBANKINHALT ===
+TABLE_NAME      TABLE_ROWS      ENGINE  TABLE_COLLATION
+tbl_benutzer    10      InnoDB  utf8mb4_unicode_ci
+tbl_buchung     1005    InnoDB  utf8mb4_unicode_ci
+tbl_land        83      InnoDB  utf8mb4_unicode_ci
+tbl_leistung    7       InnoDB  utf8mb4_unicode_ci
+tbl_personen    2035    InnoDB  utf8mb4_unicode_ci
+tbl_positionen  1745    InnoDB  utf8mb4_unicode_ci
+Demo
+=== DATENBANK-BENUTZER ===
+User    Host
+bp_benutzer     %
+bp_management   %
+bp_readonly     %
+Demo
+=== FREMDSCHL??SSEL-CONSTRAINTS ===
+CONSTRAINT_NAME TABLE_NAME      COLUMN_NAME     REFERENCED_TABLE_NAME   REFERENCED_COLUMN_NAME
+fk_buchung_personen     tbl_buchung     Personen_FS     tbl_personen    Personen_ID
+fk_buchung_land tbl_buchung     Land_FS tbl_land        Land_ID
+fk_positionen_buchung   tbl_positionen  Buchungs_FS     tbl_buchung     Buchungs_ID
+fk_positionen_benutzer  tbl_positionen  Benutzer_FS     tbl_benutzer    Benutzer_ID
+fk_positionen_leistung  tbl_positionen  Leistung_FS     tbl_leistung    LeistungID
+Test
+=== T01: SELECT tbl_personen (bp_benutzer) ??? ERLAUBT ===
+Personen_ID     Vorname Name    Ort
+1       Walter  Izykowski       Beinwil am See
+2       J??rg   M??der  Davos-Frauenkirch
+3       Horst   Saez    Davos Platz
+4       Horst   Voigt   Davos-Platz
+5       Horst   Frau Kerstin Heling     Davos-Platz
+Test
+=== T03: SELECT tbl_benutzer ohne Password (bp_benutzer) ??? ERLAUBT ===
+Benutzer_ID     Benutzername    Vorname Name    deaktiviert
+1       admin   NULL    Administrator   NULL
+2       mueller Heinz   M??ller NULL
+3       emueller        Esther  M??ller 2001-12-01
+7       sauber  Peter   Sauber  NULL
+8       niederer        Max     Niederer        2001-06-15
+Test
+=== T05: SELECT tbl_buchung (bp_benutzer) ??? ERLAUBT ===
+Buchungs_ID     Personen_FS     Ankunft Abreise
+1       2       2015-05-04 00:00:00     2015-05-05 00:00:00
+6       5       2015-05-15 00:00:00     2015-05-19 00:00:00
+7       6       2015-05-15 00:00:00     2015-05-19 00:00:00
+8       3       2015-05-15 00:00:00     2015-05-19 00:00:00
+9       4       2015-05-15 00:00:00     2015-05-19 00:00:00
+Test
+=== T07: SELECT tbl_land (bp_benutzer) ??? ERLAUBT ===
+Land_ID Land
+1       Schweiz
+99      Liechtenstein
+100     Aegypten
+101     Algerien
+102     Argentinien
+Info
+=== NEGATIVTESTS (auskommentiert ??? Kommentare entfernen f??r Demo) ===
+Test
+=== T09: SELECT tbl_buchung (bp_management) ??? ERLAUBT ===
+Buchungs_ID     Personen_FS     Ankunft
+1       2       2015-05-04 00:00:00
+6       5       2015-05-15 00:00:00
+7       6       2015-05-15 00:00:00
+8       3       2015-05-15 00:00:00
+9       4       2015-05-15 00:00:00
+Test
+=== T11: SELECT tbl_personen (bp_management) ??? ERLAUBT ===
+Personen_ID     Vorname Name
+14      NULL    NULL
+308     NULL    NULL
+485     NULL    NULL
+486     NULL    NULL
+498     NULL    NULL
+Demo
+=== CONSTRAINT-DEMO: FK-Verletzung ===
+Info
+Versuch: Buchung mit nicht existierendem Personen_FS=99999
+Ende
+=== DEMO ABGESCHLOSSEN ===
+Zeitstempel
+Testzeit: 2026-07-07 08:18:53
+PS C:\>
